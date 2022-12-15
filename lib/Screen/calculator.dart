@@ -98,13 +98,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
   Color _condition(value) {
     if (value == "C") {
-      return Colors.red;
+      return const Color.fromARGB(255, 246, 16, 0);
     } else if (value == "=") {
-      return Colors.blueGrey;
-    } else if (value == "<-") {
-      return Colors.black87;
+      return Colors.blue;
+    } else if (value == "<-" ||
+        value == "*" ||
+        value == "/" ||
+        value == "+" ||
+        value == "-" ||
+        value == "%" ||
+        value == ".") {
+      return Colors.deepOrangeAccent;
     }
-    return Colors.blueAccent;
+    return Colors.orange;
   }
 
   _calculate(String operation, double firstNumber, double secondNumber) {
@@ -144,6 +150,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black,
           title: const Text("Grid Screen"),
           centerTitle: true,
         ),
@@ -157,7 +164,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 enabled: false,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.numbers, color: Colors.black87),
+                  // prefixIcon: Icon(Icons.numbers, color: Colors.black87),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -170,8 +177,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             Expanded(
               child: GridView.count(
                 crossAxisCount: 4,
-                crossAxisSpacing: 4,
-                mainAxisSpacing: 4,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 10,
                 children: [
                   for (int i = 0; i < buttons.length; i++) ...{
                     InkWell(
