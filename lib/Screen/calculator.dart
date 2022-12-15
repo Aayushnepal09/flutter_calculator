@@ -151,7 +151,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: const Text("Grid Screen"),
+          title: const Text("Calculator"),
           centerTitle: true,
         ),
         body: Column(
